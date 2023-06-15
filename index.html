@@ -5,24 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <title>MealWorms</title>
+    <title>Yumilicious</title>
 </head>
 <body>
-    <header class="container"><h1 style="color:red; padding: 20px; text-align: center; background-color: lime;">MealWorms</h1></header>
-    <main class="container">
-
-        <div class="card" style="background-color: rgb(176, 231, 22); display: flexbox; width: 20%; border: 2px; margin: 1px;" >
-            <h3 class="card-header text-uppercase" style="color:green">Search By Recipe</h3>
+      <!--Page header-->
+      <header class="hero">
+        <h1 class="app-title">Yumilicious</h1>
+      </header>
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-3">
+           
             <form id="user-form" class="card-body">
-              <label class="form-label" for="Recipe" style="color: green">Username</label>
-              <input name="Recipe" id="Recipe" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn" style="color: blue;"><b>Get Recipe</b></button>
-                     <ul>
-              <li><button type="submit" class="Entrees" style="padding: 3px;">Entrees</button></li>
-              <li><button type="submit" class="Appetizers" style="padding: 3px;">Appetizers</button></li>
-              <li><button type="submit" class="Deserts" style="padding: 3px;">Deserts</button></li>
-              <li><button type="submit" class="Smoothies" style="padding: 3px;">Smoothies</button></li>
+              
+              <input
+              name="Recipe"
+              id="Recipe"
+              type="text"
+              autofocus="true"
+              class="form-input"
+              placeholder="Search receipe..."
+            />
+            <button class="btnSubmit" type="submit" ><b>Get Recipe</b></button>
+
             </form>
+            <hr/>
+            <!--Container for search city histories-->
+            <div id="history-buttons" class="card-body"></div>
           </div> 
           
           <section class="box" style="border: 5px; background-color: blue; display: block; height: 50%; margin: 1px; border-color: lawngreen; width: 65%;">
@@ -38,8 +46,6 @@
           </div>
 
           </section>
-
-       
     </main>
 
 
