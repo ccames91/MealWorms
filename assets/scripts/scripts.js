@@ -68,14 +68,34 @@ var createRecipeCard = function (currentDayData) {
     // Create Card Body Div
     var cardBodyEl = document.createElement("div");
     cardBodyEl.classList = "card-body";
-  
+
     var iconEl = document.createElement("img");
   
     iconEl.setAttribute("alt", "Recipe Thumb Nail");
     iconEl.setAttribute("src", currentDayData.strMealThumb);
-    iconEl.setAttribute("width", 200);
+    iconEl.setAttribute("width", 250);
   
     cardBodyEl.appendChild(iconEl);
+
+    let ingredientLabel = document.createElement("h3");
+    ingredientLabel.innerText = 'Ingredients'
+    cardBodyEl.appendChild(ingredientLabel)
+
+    let ingredientList = document.createElement("ul");
+    
+    for (let indexIng = 1; indexIng < 20 ; indexIng++) {
+         
+        let listItem = currentDayData['strIngredient' + indexIng]
+        if (listItem) {
+            let ingredientItem = document.createElement("li");
+            ingredientItem.innerText = listItem + " " + currentDayData['strMeasure' + indexIng]
+            ingredientList.appendChild(ingredientItem)            
+        } else {
+            break;
+        }
+    }
+    
+    cardBodyEl.appendChild(ingredientList)
 
     var cardDetails = document.createElement("p");
     cardDetails.textContent = currentDayData.strInstructions
