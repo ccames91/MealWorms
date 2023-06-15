@@ -15,39 +15,27 @@
     <main class="flex-row justify-space-between">
         <div class="col-12 col-md-3">
            
-            <form id="user-form" class="card-body">
-              
+            <form id="user-form" class="card-body">       
               <input
-              name="Recipe"
-              id="Recipe"
+              name="RecipeSearch"
+              id="RecipeSearch"
               type="text"
               autofocus="true"
               class="form-input"
               placeholder="Search receipe..."
             />
             <button class="btnSubmit" type="submit" ><b>Get Recipe</b></button>
-
             </form>
             <hr/>
             <!--Container for search city histories-->
             <div id="history-buttons" class="card-body"></div>
           </div> 
-          
-          <section class="box" style="border: 5px; background-color: blue; display: block; height: 50%; margin: 1px; border-color: lawngreen; width: 65%;">
-            <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Recipe Instructions</h1>
-            <p>
-            <ul id="recipe">
-              <li>This is where the Instructionsfor the Recipe will appear</li>
-              <li>Not sure how to create a box within a box so im taking up space till we get the right information in here</li>
-            </ul>
-            </p>
-            <div class="card;" style='background-color: red; display: flexbox; width: 20%; border: 2px; margin: 1px; ;'>
-            <h2 class="card-header;" style="background-color: chartreuse;">Nutrition facts</h2>
+
+          <div class="col-12 col-md-9">
+            <div id="receipe-container" class="list-group"></div>
           </div>
-
-          </section>
+            
     </main>
-
 
 
     <script src="./assets/scripts/scripts.js"></script>
