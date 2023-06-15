@@ -14,10 +14,8 @@ var formSubmitHandler = function (event) {
         receipeContainerEl.innerText='Enter a receipe search text'
         return
     }
-
+    receipeInputEl.value=''
    
-
-
     if (!recipeSearch[searchText]) {
         createHistoryButton(searchText, true);
         } else {
