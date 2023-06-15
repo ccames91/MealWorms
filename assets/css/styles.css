@@ -31,6 +31,7 @@
 header {
   display: flex;
   justify-content: left;
+  background-image: url(./../images/head-banner.jpeg);
 }
 
 body {
