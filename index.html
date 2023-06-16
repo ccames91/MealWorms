@@ -4,45 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
     <title>MealWorms</title>
 </head>
 <body>
-    <header class="container"><h1 style="color:red; padding: 20px; text-align: center; background-color: lime;">MealWorms</h1></header>
-    <main class="container">
-
-        <div class="card" style="background-color: rgb(176, 231, 22); display: flexbox; width: 20%; border: 2px; margin: 1px;" >
-            <h3 class="card-header text-uppercase" style="color:green">Search By Recipe</h3>
-            <form id="user-form" class="card-body">
-              <label class="form-label" for="Recipe" style="color: green">Username</label>
-              <input name="Recipe" id="Recipe" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn" style="color: blue;"><b>Get Recipe</b></button>
-                     <ul>
-              <li><button type="submit" class="Entrees" style="padding: 3px;">Entrees</button></li>
-              <li><button type="submit" class="Appetizers" style="padding: 3px;">Appetizers</button></li>
-              <li><button type="submit" class="Deserts" style="padding: 3px;">Deserts</button></li>
-              <li><button type="submit" class="Smoothies" style="padding: 3px;">Smoothies</button></li>
-            </form>
-          </div> 
-          
-          <section class="box" style="border: 5px; background-color: blue; display: block; height: 50%; margin: 1px; border-color: lawngreen; width: 65%;">
-            <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Recipe Instructions</h1>
-            <p>
-            <ul id="recipe">
-              <li>This is where the Instructionsfor the Recipe will appear</li>
-              <li>Not sure how to create a box within a box so im taking up space till we get the right information in here</li>
-            </ul>
-            </p>
-            <div class="card;" style='background-color: red; display: flexbox; width: 20%; border: 2px; margin: 1px; ;'>
-            <h2 class="card-header;" style="background-color: chartreuse;">Nutrition facts</h2>
-          </div>
-
-          </section>
-
-       
-    </main>
+    <header class="header">
+      <h1>MealWorms</h1>
+      <p> A Delicious Guide to Nutrition</p>
+    </header>
+<div class="container">
+  <div class="search-bar">
+    <div id="select">
+      <p id="selectText">All categories</p>
+      <img src="./assets/css/Images/arrow.png" alt="arrow">
+      <ul id="list">
+        <li class="options">Pasta</li>
+        <li class="options">Burgers</li>
+        <li class="options">Meatloaf</li>
+        <li class="options">Tacos</li>
 
 
+      </ul>
+    </div>
+    <input type="text" id="inputfield" placeholder=" Search In All Categories"">
+  </div>
+
+</div>
+<script>
+  let select = document.getElementById("select");
+  let list = document.getElementById("list");
+  let selectText = document.getElementById("selectText");
+  let inputfield = document.getElementById("inputfield");
+  
+  let options = document.getElementsByClassName("options");
+  
+  select.onclick = function(){
+      list.classList.toggle("open");
+
+
+  }
+  for(option of options){
+      option.onclick = function(){
+          selectText.innerHTML = this.innerHTML;
+          inputfield.placeholder = "Search in " + selectText.innerHTML;
+      }
+
+  }
+
+</script>
 
     <script src="./assets/scripts/scripts.js"></script>
 </body>
