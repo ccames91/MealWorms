@@ -8,33 +8,30 @@ var historyContainerEl = document.querySelector("#history-buttons");
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
+
+    //Clear any active history buttons
+    for (const elIndex in historyContainerEl.children) {
+        let buttonEl = historyContainerEl.children[elIndex];
+
+        if (buttonEl.classList && buttonEl.classList.contains("active")) {
+            buttonEl.classList.toggle("active");
+        }
+    }
+
     var searchText = receipeInputEl.value.trim()
 
     if (!searchText || searchText=='') {
         receipeContainerEl.innerText='Enter a receipe search text'
         return
     }
+
     receipeInputEl.value=''
-   
-    if (!recipeSearch[searchText]) {
-        createHistoryButton(searchText, true);
-        } else {
-        for (const elIndex in historyContainerEl.children) {
-            let buttonEl = historyContainerEl.children[elIndex];
-
-            if ( buttonEl.classList && buttonEl.dataset.recipe === searchText) {
-                buttonEl.classList.toggle("active");
-            }
-        }
-    }
-
-    recipeSearch[searchText] = searchText;
-    localStorage.setItem("recipeSearchData", JSON.stringify(recipeSearch));
 
     getRecipeList(searchText);
 }
 
 var getRecipeList = function(searchText) {
+
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + searchText)
     .then(res => {
         return res.json()
@@ -43,8 +40,25 @@ var getRecipeList = function(searchText) {
         receipeContainerEl.innerHTML = ''
 
         if (data.meals) {
+            //Create history button for recent search 
+            if (!recipeSearch[searchText]) {
+                createHistoryButton(searchText, true);
+            } else {
+                for (const elIndex in historyContainerEl.children) {
+                    let buttonEl = historyContainerEl.children[elIndex];
+        
+                    if ( buttonEl.classList && buttonEl.dataset.recipe === searchText) {
+                        buttonEl.classList.toggle("active");
+                    }
+                }
+            }
+            //Update localStorage for recent search string
+            recipeSearch[searchText] = searchText;
+            localStorage.setItem("recipeSearchData", JSON.stringify(recipeSearch));
+        
             for (let index = 0; index < data.meals.length; index++) {
                 createRecipeCard(data.meals[index])
+                //getNutritionDetails
             }
         } else {
             receipeContainerEl.innerHTML = 'No recipes found for search text "' + searchText + '"'
