@@ -4,55 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/styles.css"/>
-    <title>MealWorms</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Yumilicious</title>
 </head>
 <body>
-    <header class="header">
-      <h1>MealWorms</h1>
-      <p> A Delicious Guide to Nutrition</p>
-    </header>
-<div class="container">
-  <div class="search-bar">
-    <div id="select">
-      <p id="selectText">All categories</p>
-      <img src="./assets/css/Images/arrow.png" alt="arrow">
-      <ul id="list">
-        <li class="options">Pasta</li>
-        <li class="options">Burgers</li>
-        <li class="options">Meatloaf</li>
-        <li class="options">Tacos</li>
+      <!--Page header-->
+      <header class="hero">
+        <h1 class="app-title">Yumilicious</h1>
+      </header>
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-3">
+           
+            <form id="user-form" class="card-body">       
+              <input
+              name="RecipeSearch"
+              id="RecipeSearch"
+              type="text"
+              autofocus="true"
+              class="form-input"
+              placeholder="Search receipe..."
+            />
+            <button class="btnSubmit" type="submit" ><b>Get Recipe</b></button>
+            </form>
+            <hr/>
+            <!--Container for search city histories-->
+            <div id="history-buttons" class="card-body"></div>
+          </div> 
 
-
-      </ul>
-    </div>
-    <input type="text" id="inputfield" placeholder=" Search In All Categories"">
-  </div>
-
-</div>
-<script>
-  let select = document.getElementById("select");
-  let list = document.getElementById("list");
-  let selectText = document.getElementById("selectText");
-  let inputfield = document.getElementById("inputfield");
-  
-  let options = document.getElementsByClassName("options");
-  
-  select.onclick = function(){
-      list.classList.toggle("open");
-
-
-  }
-  for(option of options){
-      option.onclick = function(){
-          selectText.innerHTML = this.innerHTML;
-          inputfield.placeholder = "Search in " + selectText.innerHTML;
-      }
-
-  }
-
-</script>
-
+          <div class="col-12 col-md-9">
+            <div id="receipe-container" class="list-group"></div>
+          </div>
+            
+    </main>
     <script src="./assets/scripts/scripts.js"></script>
 </body>
 </html>
