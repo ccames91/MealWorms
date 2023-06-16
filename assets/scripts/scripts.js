@@ -67,7 +67,7 @@ var createRecipeCard = function (currentDayData) {
   
     // Create Card Body Div
     var cardBodyEl = document.createElement("div");
-    cardBodyEl.classList = "card-body";
+    cardBodyEl.classList = "card-body card-content";
 
     var iconEl = document.createElement("img");
   
