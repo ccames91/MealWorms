@@ -73,6 +73,10 @@ h6 {
   line-height: 1.25;
 }
 
+h1 {
+  max-width: fit-content;
+}
+
 h3 img  {
   height: 25px;
 }
@@ -183,7 +187,7 @@ p {
   padding: 0;
   list-style: none;
   overflow-y: scroll;
-  height:80vh;
+  height:100vh;
 }
 
 .list-item {
@@ -218,14 +222,21 @@ p {
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
+ 
 }
 
 .card-header {
   color: var(--primary);
   background-color: var(--dark);
   padding: 2.5%;
-  border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+
+}
+
+.card-header:first-child {
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
 }
 
 .card-body {
@@ -235,6 +246,7 @@ p {
 .card-content {
   opacity: 0.8;
   background-color: var(--secondary);
+  color:var(--dark);
 }
 
 .card-body img{
