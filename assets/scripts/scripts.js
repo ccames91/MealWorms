@@ -4,6 +4,8 @@ var receipeContainerEl = document.querySelector("#receipe-container");
 
 var historyContainerEl = document.querySelector("#history-buttons");
 
+var ninjaApiKey = 'zhEVaooGdW491s6TW7TM1w==a7kkBpjGpLUfzlQm'
+
 
 var formSubmitHandler = function (event) {
     event.preventDefault();
@@ -101,10 +103,77 @@ var createRecipeCard = function (currentDayData) {
     cardDetails.textContent = currentDayData.strInstructions
 
     cardBodyEl.appendChild(cardDetails);
+    addNutritionButton(cardBodyEl)
     cardEl.appendChild(cardBodyEl);
 
     receipeContainerEl.appendChild(cardEl);
 };
+
+var addNutritionContent = function (data, elem) {
+    let header = document.createElement("h3");
+    header.classList ='card-header'
+    header.innerText ='Nutritional Facts'
+    elem.appendChild(header)
+
+    for (let index = 0; index < data.length; index++) {
+        const element = data[index];
+        let ingredientList = document.createElement("ul");
+
+        for (let j in element) {             
+            let ingredientItem = document.createElement("li");
+            let nutriType = j.substring (0, j.indexOf ('_'))
+            if (j.indexOf ('_') <=0 ) {
+                nutriType = j
+            }
+            let nutriMeasure = ''
+            if (j.lastIndexOf('_') > 0) {
+                nutriMeasure = j.substring(j.lastIndexOf('_')+1,j.length)
+            }
+            ingredientItem.innerText = nutriType.toUpperCase() + ' ' + element[j] + ' ' + nutriMeasure
+            ingredientList.appendChild(ingredientItem)  
+        }
+
+        elem.appendChild(ingredientList)
+        if (index < data.length - 1) {
+            let hrElem = document.createElement('hr')
+            elem.appendChild(hrElem)
+        }
+        
+    }
+
+}
+
+var displayNutritionFact = function(event) {
+    var recipeName = event.target.parentNode.parentNode.children[0].innerText
+
+    fetch('https://api.api-ninjas.com/v1/nutrition?query=' + recipeName, {
+        headers: { 'X-Api-Key': ninjaApiKey}
+    })
+    .then(res => {
+        return res.json()
+    })
+    .then(data => {
+
+        console.log (data)
+        let nutDialogEle = document.getElementById("nutrition-dialog"); 
+        nutDialogEle.innerHTML=''
+        addNutritionContent (data, nutDialogEle)
+        nutDialogEle.addEventListener('click', function(event){
+            this.close()
+        })
+        nutDialogEle.showModal()
+    });
+
+}
+
+//Function to display nutritional fact 
+var addNutritionButton = function(parentElement) {
+    let buttonEl = document.createElement("button");
+    buttonEl.classList = "btn btn_width";
+    buttonEl.innerText = "Click Here for Nutritional Facts "; 
+    buttonEl.addEventListener("click", displayNutritionFact);
+    parentElement.appendChild(buttonEl)
+}
 
 //Function to generate history button for each previous searched recipes
 var createHistoryButton = function (recipeSearch, isActive) {
