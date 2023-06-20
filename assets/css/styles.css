@@ -272,8 +272,9 @@ p {
   color: var(--dark);
 }
 
-.dialog div:last-child hr {
-  display: none;
+.dialog.show {
+  background: var(--tertiary);
+  opacity: .9;
 }
 
 
