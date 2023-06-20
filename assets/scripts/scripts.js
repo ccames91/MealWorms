@@ -125,6 +125,11 @@ var addNutritionContent = function (data, elem) {
             if (j.indexOf ('_') <=0 ) {
                 nutriType = j
             }
+
+            if (j.indexOf('saturated') > 0 ) {
+                nutriType = 'saturated fat'
+            }
+
             let nutriMeasure = ''
             if (j.lastIndexOf('_') > 0) {
                 nutriMeasure = j.substring(j.lastIndexOf('_')+1,j.length)

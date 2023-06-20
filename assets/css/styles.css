@@ -254,7 +254,7 @@ p {
   background-color:var(--secondary);
   padding: 20px;
   border: 3px solid var(--dark);
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px 10px 5px var(--light-dark);
   margin: 0 0 20px 0;
   border-radius: var(--border-radius);
   color: var(--dark);
