@@ -42,7 +42,7 @@ header {
   z-index: 999;
   display: flex;
   justify-content: left;
-  background-image: url(./../images/head-banner.jpeg);
+  background-image: url(./../images/head-banner.jpg);
 }
 
 body {
