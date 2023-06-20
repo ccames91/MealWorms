@@ -111,6 +111,7 @@ p {
   background-color: var(--light-dark);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
+  opacity: 0.8
 }
 
  .btn:hover {
