@@ -222,6 +222,7 @@ p {
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
+  opacity: 0.8;
  
 }
 
@@ -244,7 +245,6 @@ p {
 }
 
 .card-content {
-  opacity: 0.8;
   background-color: var(--secondary);
   color:var(--dark);
 }
