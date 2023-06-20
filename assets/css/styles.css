@@ -271,6 +271,7 @@ p {
   margin: 0 0 20px 0;
   border-radius: var(--border-radius);
   color: var(--dark);
+  opacity: 0.9
 }
 
 .dialog.show {
