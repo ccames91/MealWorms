@@ -30,13 +30,19 @@
   z-index: 100;
 }
 
+.btn_width {
+  max-width: fit-content;
+}
+
+
+
 header {
   position: sticky;
   top: 0;
   z-index: 999;
   display: flex;
   justify-content: left;
-  background-image: url(./../images/head-banner.jpeg);
+  background-image: url(./../images/head-banner.jpg);
 }
 
 body {
@@ -65,6 +71,10 @@ h6 {
   margin: 0;
   color: var(--dark);
   line-height: 1.25;
+}
+
+h1 {
+  max-width: fit-content;
 }
 
 h3 img  {
@@ -101,6 +111,7 @@ p {
   background-color: var(--light-dark);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
+  opacity: 0.8
 }
 
  .btn:hover {
@@ -212,14 +223,22 @@ p {
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
+  opacity: 0.8;
+ 
 }
 
 .card-header {
   color: var(--primary);
   background-color: var(--dark);
   padding: 2.5%;
-  border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+
+}
+
+.card-header:first-child {
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
 }
 
 .card-body {
@@ -227,14 +246,39 @@ p {
 }
 
 .card-content {
-  opacity: 0.8;
   background-color: var(--secondary);
+  color:var(--dark);
 }
 
 .card-body img{
   float:right;
   padding: 20px;
 }
+
+/* Dialog */
+
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 700px;
+  background-color:var(--secondary);
+  padding: 20px;
+  border: 3px solid var(--dark);
+  box-shadow: 10px 10px 5px var(--light-dark);
+  margin: 0 0 20px 0;
+  border-radius: var(--border-radius);
+  color: var(--dark);
+  opacity: 0.9
+}
+
+.dialog.show {
+  background: var(--tertiary);
+  opacity: .9;
+}
+
 
 /* FORM */
 .form-label,
