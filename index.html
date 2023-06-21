@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Yumilicious</title>
-</head>
-<body>
-      <!--Page header-->
-      <header class="hero">
-        <h1 class="app-title">Yumilicious</h1>
-      </header>
+  </head>
+  <body>
+    <!--Page header-->
+    <header class="hero">
+      <h1 class="app-title">Yumilicious</h1>
+    </header>
     <main class="flex-row justify-space-between">
-        <div class="col-12 col-md-3">
-           
-            <form id="user-form" class="card-body">       
-              <input
-              name="RecipeSearch"
-              id="RecipeSearch"
-              type="text"
-              autofocus="true"
-              class="form-input"
-              placeholder="Search receipe..."
-            />
-            <button class="btnSubmit" type="submit" ><b>Get Recipe</b></button>
-            </form>
-            <hr/>
-            <!--Container for search city histories-->
-            <div id="history-buttons" class="card-body"></div>
-          </div> 
+      <div class="col-12 col-md-3">
+        <!-- form to get user search criteria -->
+        <form id="user-form" class="card-body">
+          <input
+            name="RecipeSearch"
+            id="RecipeSearch"
+            type="text"
+            autofocus="true"
+            class="form-input"
+            placeholder="Search receipe..."
+          />
+          <button class="btnSubmit" type="submit"><b>Get Recipe</b></button>
+        </form>
+        <hr />
+        <!--Container for search city histories-->
+        <div id="history-buttons" class="card-body"></div>
+      </div>
 
-          <div class="col-12 col-md-9">
-            <div id="receipe-container" class="list-group"></div>
-          </div>
-            
+      <div class="col-12 col-md-9">
+        <div id="receipe-container" class="list-group"></div>
+        <!-- Tag for modal window -->
+        <dialog class="dialog" id="nutrition-dialog"></dialog>
+      </div>
     </main>
     <script src="./assets/scripts/scripts.js"></script>
-</body>
+  </body>
 </html>
